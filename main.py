@@ -37,11 +37,10 @@ def duplicity_check(number: list) -> bool:
 def bulls_and_cows(number_1:list, number_2:list) -> str:
     '''
     Checks how many digits from the number_2 
-    are in the number_1 (cow_count).
-    Checks how many digits from the number_2 
     are in the number_1 
     and are at the same position. (bull_count)
-
+    or checks how many digits from the number_2 
+    are in the number_1 (cow_count).
     Args:
         number_1 = ["1", "2", "3", "4"]
         number_2 = ["1", "2", "5", "6"]
@@ -55,7 +54,7 @@ def bulls_and_cows(number_1:list, number_2:list) -> str:
     for digit in number_2:
         if digit in number_1 and number_2[count] == number_1[count]:
             bull_count +=1
-        if digit in number_1:
+        elif digit in number_1:
             cow_count += 1
         count += 1    
     if bull_count == 1 and cow_count == 1:
@@ -84,7 +83,6 @@ guess_count = 0
 
 while True:
     player_guess = input("Enter a number: ")
-
     if player_guess.isdigit() is False:
         print("Invalid input.")
         continue
